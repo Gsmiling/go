@@ -1,15 +1,14 @@
-public class Chambre extends Categorie_chambre{
+package model;
+
+public class Room extends RoomCategory {
 
         private int numeroChambre;
         private String typeChambre;
         private double prix;
         private boolean disponible;
-        public Chambre( int id, String libelle, int numeroChambre,String typeChambre,double prix)
-                {
-                        super(id, libelle);
+        public Room(int id, String libelle, int numeroChambre, double prix) {
                         this.numeroChambre = numeroChambre;
                         this.prix = prix;
-                        this.typeChambre =typeChambre;
                 }
         public int getNumeroChambre(){
                 return numeroChambre;

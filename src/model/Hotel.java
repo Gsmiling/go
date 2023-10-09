@@ -1,10 +1,12 @@
+package model;
+
 public class Hotel {
     private  String nomHotel;
     private String localisation;
     private int nbreChambre;
-    private Categorie_chambre c;
+    private RoomCategory c;
 
-public Hotel(String nomHotel, String localisation, int nbreChambre, Categorie_chambre c) {
+public Hotel(String nomHotel, String localisation, int nbreChambre, RoomCategory c) {
     this.nomHotel = nomHotel;
     this.c = c;
     this.localisation= localisation;
@@ -34,7 +36,7 @@ public Hotel copie(){
         return localisation;
     }
 
-    public Categorie_chambre getC() {
+    public RoomCategory getC() {
         return c;
     }
 
