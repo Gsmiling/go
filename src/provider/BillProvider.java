@@ -4,22 +4,21 @@ import model.IdentifiedObject;
 
 import java.util.List;
 
-public class RoomProvider implements ProviderMethod {
-    public static RoomProvider instance;
+public class BillProvider implements ProviderMethod{
+    public static BillProvider instance;
     static  private Provider provider;
 
-    private RoomProvider() {
+    private BillProvider() {
 
     }
 
-    public static RoomProvider getInstance() {
+    public static BillProvider getInstance() {
         if (instance == null) {
             provider = Provider.getInstance();
-            instance = new RoomProvider();
+            instance = new BillProvider();
         }
         return instance;
     }
-
 
     @Override
     public boolean add(IdentifiedObject object) {

@@ -91,7 +91,14 @@ public class Provider {
         Provider.password = password;
     }
 
-    public static Connection getConnection() {
+    public Connection getConnection() {
         return connection;
     }
+
+    public static final String id = "id";
+    public static final String nom = "nom";
+    public final static String firstName = "firstName";
+    public static final String numCart = "numCart";
+    public static final String numeroTelephone = "numeroTelephone";
+    public static final String nationality = "nationality";
 }

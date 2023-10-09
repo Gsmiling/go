@@ -1,22 +1,22 @@
 package model;
 
 public class Client extends IdentifiedObject {
-    private String nomCli;
+    private String clientName;
+    private String firstName;
     private int numCart;
     private int phoneNumber;
     private String nationality;
-    private String profession;
+    private  ClientCategory clientCategory;
 
 
 
-
-    public Client(int id, String nomCli, int numCart, int numeroTelephone, String nationality, String profession){
-        this.nomCli = nomCli;
+    public Client(int id, String nomCli, String firstName, int numCart, int numeroTelephone, String nationality){
+        this.clientName = nomCli;
         this.numCart = numCart;
         this.phoneNumber = numeroTelephone;
         this.id = id;
-        this.profession = profession;
         this.nationality = nationality;
+        this.firstName = firstName;
 
     }
 
@@ -30,18 +30,24 @@ public class Client extends IdentifiedObject {
     }
 
     public String getNomCli() {
-        return nomCli;
+        return clientName;
+    }
+    public String getFirstName(){
+        return firstName;
     }
 
     public int getPhoneNumber() {
         return phoneNumber;
     }
 
-    public String getProfession() {
-        return profession;
-    }
-
     public String getNationality() {
         return nationality;
+    }
+
+    public ClientCategory getClientCategory() {
+        return clientCategory;
+    }
+    public void setClientCategory(ClientCategory clientCategory) {
+        this.clientCategory = clientCategory;
     }
 }
