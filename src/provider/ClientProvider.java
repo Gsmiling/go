@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class ClientProvider implements ProviderMethod {
 
 
@@ -69,12 +70,32 @@ public class ClientProvider implements ProviderMethod {
 
         return false;
     }
-
     @Override
     public boolean update(IdentifiedObject object) {
         if (!(object instanceof Client)) {
             return false;
         }
+
+        String sql = "UPDATE client SET nom = ?, firstName = ?, numcart = ?, nationality = ?, numeroTelephone = ?, clientCategory = ? WHERE id = ?";
+
+        try {
+            PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);
+            Client client = (Client) object;
+            preparedStatement.setString(1, client.getNomCli());
+            preparedStatement.setString(2, client.getFirstName());
+            preparedStatement.setInt(3, client.getNumCart());
+            preparedStatement.setString(4, client.getNationality());
+            preparedStatement.setInt(5, client.getPhoneNumber());
+            preparedStatement.setString(6, client.getClientCategory().toString());
+            preparedStatement.setInt(7, client.getId());
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            return rowsAffected > 0; // Vérifie si une ligne a été mise à jour avec succès
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return false;
     }
 
@@ -87,12 +108,12 @@ public class ClientProvider implements ProviderMethod {
             PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.first()) {
-               c = new Client(resultSet.getInt(Provider.id),
-                                resultSet.getString(Provider.nom),
-                                resultSet.getString(Provider.firstName),
-                                resultSet.getInt(Provider.numCart),
-                                resultSet.getInt(Provider.numeroTelephone),
-                       resultSet.getString(Provider.nationality));
+                c = new Client(resultSet.getInt(Provider.id),
+                        resultSet.getString(Provider.nom),
+                        resultSet.getString(Provider.firstName),
+                        resultSet.getInt(Provider.numCart),
+                        resultSet.getInt(Provider.numeroTelephone),
+                        resultSet.getString(Provider.nationality));
             }
         } catch (SQLException e) {
             e.printStackTrace();

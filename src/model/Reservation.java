@@ -3,36 +3,45 @@ package model;
 import java.util.Date;
 
 public class Reservation extends IdentifiedObject{
-    Client client;
-    Room chambre;
+    int clientId;
+    String chambre;
     private Date dateArrivee;
     private Date dateDepart;
-    public  Reservation(int id, Client client, Room chambre, Date dateArrivee, Date dateDepart){
+    private ReservationStatement reservationStatement;
+    public  Reservation(int id, int clientId, String chambre, Date dateArrivee, Date dateDepart){
         this.chambre = chambre;
         this.dateArrivee = dateArrivee;
         this.dateDepart = dateDepart;
-        this.client = client;
+        this.clientId = clientId;
         this.id = id;
     }
 
-    public Date getDateArrivee() {
-        return dateArrivee;
+    public java.sql.Date getDateArrivee() {
+        return (java.sql.Date) dateArrivee;
     }
 
-    public Date getDateDepart() {
-        return dateDepart;
+    public java.sql.Date getDateDepart() {
+        return (java.sql.Date) dateDepart;
     }
 
-    public Room getChambre() {
+    public String getChambre() {
         return chambre;
     }
 
-    public Client getClient() {
-        return client;
+    public int getClientId() {
+        return clientId;
     }
 
     @Override
     public Integer getId() {
         return (Integer) super.getId();
+    }
+
+    public ReservationStatement getReservationStatement() {
+        return reservationStatement;
+    }
+
+    public void setReservationStatement(ReservationStatement reservationStatement) {
+        this.reservationStatement = reservationStatement;
     }
 }

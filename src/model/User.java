@@ -1,11 +1,12 @@
 package model;
 
-public class Users extends IdentifiedObject{
+public class User extends IdentifiedObject {
     private String name;
     private String firstName;
     private String login;
     private String password;
-    public Users(int id, String name,String firstName, String login, String password){
+    private boolean admin;
+    public User(int id, String name, String firstName, String login, String password){
         this.firstName = firstName;
         this.name = name;
         this.login = login;

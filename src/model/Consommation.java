@@ -16,8 +16,8 @@ public class Consommation extends  IdentifiedObject{
         return(Integer) super.getId();
     }
 
-    public Date getDateConso() {
-        return dateConso;
+    public java.sql.Date getDateConso() {
+        return (java.sql.Date) dateConso;
     }
 
     public double getServicePrice() {
