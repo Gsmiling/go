@@ -57,6 +57,8 @@ public class Provider {
             connection = DriverManager.getConnection(url, username, password);
             System.out.println("connection success");
         } catch (SQLException e) {
+                        System.out.println("connection failed " + e);
+
             //Cette méthode utilise la classe DriverManager de
             // JDBC pour établir une connexion à la base de données en utilisant
             // les informations de connexion spécifiées dans les variables url, username et password.

@@ -86,9 +86,9 @@ public class UsersProvider implements ProviderMethod {
         try {
             PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);
             User user = (User) object;
-            preparedStatement.setInt(4, user.getId());
-            preparedStatement.setString(1, user.getLogin());
-            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.setInt(1, user.getId());
+            preparedStatement.setString(2, user.getLogin());
+            preparedStatement.setString(3, user.getPassword());
 
             int rowsUpdated = preparedStatement.executeUpdate();
 
