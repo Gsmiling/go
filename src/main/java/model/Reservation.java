@@ -32,11 +32,6 @@ public class Reservation extends IdentifiedObject{
         return clientId;
     }
 
-    @Override
-    public Integer getId() {
-        return (Integer) super.getId();
-    }
-
     public ReservationStatement getReservationStatement() {
         return reservationStatement;
     }

@@ -11,11 +11,6 @@ public class Consommation extends  IdentifiedObject{
         this.id = id;
     }
 
-    @Override
-    public Integer getId() {
-        return(Integer) super.getId();
-    }
-
     public java.sql.Date getDateConso() {
         return (java.sql.Date) dateConso;
     }

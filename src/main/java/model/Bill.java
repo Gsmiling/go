@@ -11,12 +11,7 @@ public class Bill extends IdentifiedObject{
         this.id =id;
 
     }
-
-    @Override
-    public Integer getId() {
-        return (Integer) super.getId();
-    }
-
+    
     public Date getBillDate() {
         return billDate;
     }

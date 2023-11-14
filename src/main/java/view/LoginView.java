@@ -14,7 +14,7 @@ public class LoginView extends JFrame  {
 
         setTitle("Interface de Connexion");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1366, 768);
+        setSize(300, 200);
 
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(3, 2));

@@ -7,11 +7,6 @@ public class Service extends IdentifiedObject {
         this.id = id;
     }
 
-    @Override
-    public Integer getId() {
-        return(Integer) super.getId();
-    }
-
     public String getDesignation() {
         return designation;
     }

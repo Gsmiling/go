@@ -38,7 +38,7 @@ public class ReservationProvider implements ProviderMethod {
             Reservation reservation = (Reservation) object;
             preparedStatement.setInt(1, reservation.getId());
             preparedStatement.setInt(2, reservation.getClientId());
-            preparedStatement.setString(3, reservation.getChambre().toString());
+            preparedStatement.setString(3, reservation.getChambre());
             preparedStatement.setDate(4, reservation.getDateArrivee());
             preparedStatement.setDate(5, reservation.getDateDepart());
 

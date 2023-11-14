@@ -23,11 +23,6 @@ public class User extends IdentifiedObject{
         this.id = id;
     }
 
-    @Override
-    public Integer getId() {
-        return (Integer) super.getId();
-    }
-
     public String getPassword() {
         return password;
     }
