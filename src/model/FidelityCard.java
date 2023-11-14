@@ -12,8 +12,9 @@ public class FidelityCard extends IdentifiedObject {
     }
 
     @Override
-    public Integer getId() {
-        return (Integer) super.getId();
+    public int getId() {
+
+        return super.getId();
     }
 
     public java.sql.Date getDateIssue() {

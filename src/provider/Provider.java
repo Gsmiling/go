@@ -53,7 +53,7 @@ public class Provider {
 
     protected static void initDb() {
         try {
-           // Class.forName("com.mysql.jdbc.Driver");
+            //Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, username, password);
             System.out.println("connection success");
         } catch (SQLException e) {
@@ -62,7 +62,7 @@ public class Provider {
             // JDBC pour établir une connexion à la base de données en utilisant
             // les informations de connexion spécifiées dans les variables url, username et password.
         //} catch (ClassNotFoundException e) {
-      //      throw new RuntimeException(e);
+           // throw new RuntimeException(e);
        }
     }
 

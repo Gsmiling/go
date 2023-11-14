@@ -15,7 +15,7 @@ public class MainView {
         Provider.getInstance(
                 "jdbc:mysql://localhost:3306/hotel",
                 "root",
-                "",
+                "designmydream",
                 true);
 
         UsersProvider usersProvider = UsersProvider.getInstance();

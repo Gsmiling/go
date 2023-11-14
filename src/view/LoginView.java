@@ -70,7 +70,6 @@ public class LoginView extends JFrame  {
 
             }
         });
-        setVisible(true);
     }
 
     JFrame getThisFrame() {

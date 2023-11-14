@@ -15,8 +15,9 @@ public class User extends IdentifiedObject {
     }
 
     @Override
-    public Integer getId() {
-        return (Integer) super.getId();
+    public int getId() {
+
+        return super.getId();
     }
 
     public String getPassword() {

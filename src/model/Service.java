@@ -8,8 +8,8 @@ public class Service extends IdentifiedObject {
     }
 
     @Override
-    public Integer getId() {
-        return(Integer) super.getId();
+    public int getId() {
+        return super.getId();
     }
 
     public String getDesignation() {

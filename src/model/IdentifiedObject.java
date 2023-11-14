@@ -1,12 +1,12 @@
 package model;
 
 public abstract class IdentifiedObject {
-    protected Object id;
+    protected int id;
 
-    public Object getId() {
+    public int getId() {
         return id;
     }
-    public void setId(Object id) {
-      this.id = id;
+    public void setId(int id) {
+        this.id = id;
     }
 }

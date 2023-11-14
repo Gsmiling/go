@@ -6,8 +6,8 @@ public abstract class RoomCategory extends IdentifiedObject {
     protected Characteristic characteristic;
     protected RoomType roomType;
 
-    public Integer getId() {
-        return (Integer) id;
+    public int getId() {
+        return id;
     }
 
     public String getLabel() {
