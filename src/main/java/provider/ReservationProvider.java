@@ -57,7 +57,7 @@ public class ReservationProvider implements ProviderMethod {
             return false;
         }
 
-        String sql = "DELETE FROM votre_table WHERE id = ?";
+        String sql = "DELETE FROM reservation WHERE id = ?";
 
         try {
             PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);
@@ -79,7 +79,7 @@ public class ReservationProvider implements ProviderMethod {
             return false;
         }
 
-        String sql = "UPDATE votre_table SET champ1 = ?, champ2 = ?, champ3 = ?, champ4 = ?, champ5 = ? WHERE id = ?";
+        String sql = "UPDATE reservation SET champ1 = ?, champ2 = ?, champ3 = ?, champ4 = ?, champ5 = ? WHERE id = ?";
 
         try {
             PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);

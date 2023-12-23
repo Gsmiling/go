@@ -13,8 +13,9 @@ public class MainView {
                 "root",
                 "designmydream",
                 true);
-
-        SwingUtilities.invokeLater(() -> {
+SwingUtilities.invokeLater(new Runnable() {
+        @Override
+        public void run() {
         LoginView fenetre = new LoginView();
         fenetre.setLocationRelativeTo(null);
 //Terminer le processus lorsqu'on clique sur
@@ -22,7 +23,7 @@ public class MainView {
 
         fenetre.setVisible(true);
 
-        });
-    }
-}
+        }
+    });
+        }}
 

@@ -1,10 +1,17 @@
 package model;
 
-public abstract class RoomCategory extends IdentifiedObject {
+public class RoomCategory extends IdentifiedObject {
     protected String label;
     protected Location location;
     protected Characteristic characteristic;
     protected RoomType roomType;
+    public RoomCategory(int id, String label, Location location, Characteristic characteristic, RoomType roomtype){
+       this.label = label;
+       this.characteristic = characteristic;
+       this.roomType = roomtype;
+       this.location = location;
+       this.id = id;
+    }
 
     public String getLabel() {
         return label;

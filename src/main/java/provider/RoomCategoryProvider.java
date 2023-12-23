@@ -1,7 +1,7 @@
 package provider;
 
 import model.IdentifiedObject;
-import model.Room; // Assurez-vous d'importer la classe Room ou le type d'objet approprié.
+import model.RoomCategory;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,40 +12,37 @@ import model.Characteristic;
 import model.Location;
 import model.RoomType;
 
-public class RoomProvider implements ProviderMethod {
-    public static RoomProvider instance;
+public class RoomCategoryProvider implements ProviderMethod {
+    public static RoomCategoryProvider instance;
     static private Provider provider;
 
-    private RoomProvider() {
+    private RoomCategoryProvider() {
 
     }
 
-    public static RoomProvider getInstance() {
+    public static RoomCategoryProvider getInstance() {
         if (instance == null) {
             provider = Provider.getInstance();
-            instance = new RoomProvider();
+            instance = new RoomCategoryProvider();
         }
         return instance;
     }
 
     @Override
     public boolean add(IdentifiedObject object) {
-        if (!(object instanceof Room)) { // Assurez-vous que Room correspond au type d'objet que vous manipulez.
+        if (!(object instanceof RoomCategory)) {
             return false;
         }
 
-        String sql = "INSERT INTO room (champ1, champ2, champ3) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO room_category (label, location, characteristic, room_type) VALUES (?, ?, ?, ?)";
 
         try {
             PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);
-            Room room = (Room) object;
-            preparedStatement.setInt(1, room.getId());
-            preparedStatement.setInt(2, room.getNumeroChambre());
-            preparedStatement.setDouble(3, room.getPrix());
-             preparedStatement.setString(4, room.getLabel());
-            preparedStatement.setString(5, room.getLocation().toString());
-            preparedStatement.setString(6, room.getCharacteristic().toString());
-            preparedStatement.setString(7, room.getRoomType().toString());
+            RoomCategory roomCategory = (RoomCategory) object;
+            preparedStatement.setString(1, roomCategory.getLabel());
+            preparedStatement.setString(2, roomCategory.getLocation().toString());
+            preparedStatement.setString(3, roomCategory.getCharacteristic().toString());
+            preparedStatement.setString(4, roomCategory.getRoomType().toString());
 
             int rowsInserted = preparedStatement.executeUpdate();
 
@@ -59,16 +56,16 @@ public class RoomProvider implements ProviderMethod {
 
     @Override
     public boolean delete(IdentifiedObject object) {
-        if (!(object instanceof Room)) {
+        if (!(object instanceof RoomCategory)) {
             return false;
         }
 
-        String sql = "DELETE FROM room WHERE id = ?";
+        String sql = "DELETE FROM room_category WHERE id = ?";
 
         try {
             PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);
-            Room room = (Room) object;
-            preparedStatement.setInt(1, room.getId());
+            RoomCategory roomCategory = (RoomCategory) object;
+            preparedStatement.setInt(1, roomCategory.getId());
 
             int rowsDeleted = preparedStatement.executeUpdate();
 
@@ -82,22 +79,21 @@ public class RoomProvider implements ProviderMethod {
 
     @Override
     public boolean update(IdentifiedObject object) {
-        if (!(object instanceof Room)) {
+        if (!(object instanceof RoomCategory)) {
             return false;
         }
 
-        String sql = "UPDATE room SET champ1 = ?, champ2 = ?, champ3 = ? WHERE id = ?";
+        String sql = "UPDATE room_category SET label = ?, location = ?, characteristic = ?, room_type = ? WHERE id = ?";
 
         try {
             PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);
-            Room room = (Room) object;
-            preparedStatement.setInt(1, room.getId());
-            preparedStatement.setInt(2, room.getNumeroChambre());
-            preparedStatement.setDouble(3, room.getPrix());
-            preparedStatement.setString(4, room.getLabel());
-            preparedStatement.setString(5, room.getLocation().toString());
-            preparedStatement.setString(6, room.getCharacteristic().toString());
-            preparedStatement.setString(7, room.getRoomType().toString());
+            RoomCategory roomCategory = (RoomCategory) object;
+            preparedStatement.setInt(1, roomCategory.getId());
+            preparedStatement.setString(2, roomCategory.getLabel());
+            preparedStatement.setString(3, roomCategory.getLocation().toString());
+            preparedStatement.setString(4, roomCategory.getCharacteristic().toString());
+            preparedStatement.setString(5, roomCategory.getRoomType().toString());
+
             int rowsUpdated = preparedStatement.executeUpdate();
 
             return rowsUpdated > 0; // Vérifie si une ligne a été mise à jour avec succès
@@ -114,7 +110,7 @@ public class RoomProvider implements ProviderMethod {
             return null;
         }
 
-        String sql = "SELECT * FROM room WHERE id = ?";
+        String sql = "SELECT * FROM room_category WHERE id = ?";
 
         try {
             PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);
@@ -122,18 +118,14 @@ public class RoomProvider implements ProviderMethod {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
-                Room room = new Room(
-                    resultSet.getInt("id"),
-                    resultSet.getInt("numeroChambre"),
-                    resultSet.getDouble("prix"),
+                RoomCategory roomCategory = new RoomCategory(
+                        resultSet.getInt("id"),
                         resultSet.getString("label"),
                         Location.fromString(resultSet.getString("location")),
                         Characteristic.fromString(resultSet.getString("characteristic")),
                         RoomType.fromString(resultSet.getString("room_type"))
-                        
-                    // Vous pouvez ajouter d'autres champs ici selon votre modèle
                 );
-                return room;
+                return roomCategory;
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -144,27 +136,25 @@ public class RoomProvider implements ProviderMethod {
 
     @Override
     public List<IdentifiedObject> getAll() {
-        String sql = "SELECT * FROM room";
+        String sql = "SELECT * FROM room_category";
 
         try {
             PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
-            ArrayList<Room> listeRooms = new ArrayList<>();
+            ArrayList<RoomCategory> listeRoomCategories = new ArrayList<>();
 
             while (resultSet.next()) {
-                Room room = new Room(
-                    resultSet.getInt("id"),
-                    resultSet.getInt("numeroChambre"),
-                    resultSet.getDouble("prix"),
-                    resultSet.getString("label"),
+                RoomCategory roomCategory = new RoomCategory(
+                       resultSet.getInt("id"),
+                        resultSet.getString("label"),
                         Location.fromString(resultSet.getString("location")),
                         Characteristic.fromString(resultSet.getString("characteristic")),
                         RoomType.fromString(resultSet.getString("room_type"))
                 );
-                listeRooms.add(room);
+                listeRoomCategories.add(roomCategory);
             }
 
-            return new ArrayList<>(listeRooms);
+            return new ArrayList<>(listeRoomCategories);
         } catch (SQLException e) {
             e.printStackTrace();
         }

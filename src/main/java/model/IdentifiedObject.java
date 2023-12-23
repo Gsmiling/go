@@ -9,7 +9,7 @@ package model;
  * @author gr
  */
 
-public abstract class IdentifiedObject {
+public class IdentifiedObject {
     protected int id;
 
     public int getId() {

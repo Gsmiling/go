@@ -32,7 +32,7 @@ public class UsersProvider implements ProviderMethod {
             return false;
         }
 
-        String sql = "INSERT INTO users (champ1, champ2, champ3) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO user (champ1, champ2, champ3) VALUES (?, ?, ?)";
 
         try {
             PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);
@@ -57,7 +57,7 @@ public class UsersProvider implements ProviderMethod {
             return false;
         }
 
-        String sql = "DELETE FROM users WHERE id = ?";
+        String sql = "DELETE FROM user WHERE id = ?";
 
         try {
             PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);
@@ -81,7 +81,7 @@ public class UsersProvider implements ProviderMethod {
             return false;
         }
 
-        String sql = "UPDATE users SET champ1 = ?, champ2 = ?, champ3 = ? WHERE id = ?";
+        String sql = "UPDATE user SET champ1 = ?, champ2 = ?, champ3 = ? WHERE id = ?";
 
         try {
             PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);
@@ -106,7 +106,7 @@ public class UsersProvider implements ProviderMethod {
             return null;
         }
 
-        String sql = "SELECT * FROM votre_table WHERE id = ?";
+        String sql = "SELECT * FROM user WHERE id = ?";
 
         try {
             PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);
@@ -131,7 +131,7 @@ public class UsersProvider implements ProviderMethod {
 
     @Override
     public List<IdentifiedObject> getAll() {
-        String sql = "SELECT * FROM Users";
+        String sql = "SELECT * FROM user";
 
         try {
             PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);
@@ -159,7 +159,7 @@ public class UsersProvider implements ProviderMethod {
 
     public User getUserByLoginInfo(String username, String password) {
 
-        String sql = "SELECT * FROM users WHERE login = ? AND password = ?";
+        String sql = "SELECT * FROM user WHERE login = ? AND password = ?";
 
         try {
             PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);

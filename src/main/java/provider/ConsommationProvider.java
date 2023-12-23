@@ -31,7 +31,7 @@ public class ConsommationProvider implements ProviderMethod {
             return false;
         }
 
-        String sql = "INSERT INTO votre_table (champ1, champ2, champ3) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO consommation (champ1, champ2, champ3) VALUES (?, ?, ?)";
 
         try {
             PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);
@@ -81,7 +81,7 @@ public class ConsommationProvider implements ProviderMethod {
             return false;
         }
 
-        String sql = "UPDATE votre_table SET champ1 = ?, champ2 = ?, champ3 = ? WHERE id = ?";
+        String sql = "UPDATE consommation SET champ1 = ?, champ2 = ?, champ3 = ? WHERE id = ?";
 
         try {
             PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);
@@ -103,7 +103,7 @@ public class ConsommationProvider implements ProviderMethod {
         if (!(id instanceof Integer)){
             return null;
         }
-        String sql = "SELECT * FROM votre_table WHERE id = ?";
+        String sql = "SELECT * FROM consommation WHERE id = ?";
 
         try {
             PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);
@@ -130,7 +130,7 @@ public class ConsommationProvider implements ProviderMethod {
 
     @Override
     public List<IdentifiedObject> getAll() {
-        String sql = "SELECT * FROM votre_table";
+        String sql = "SELECT * FROM consommation";
 
         try {
             PreparedStatement preparedStatement = provider.getConnection().prepareStatement(sql);
