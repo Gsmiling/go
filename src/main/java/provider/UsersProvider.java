@@ -141,8 +141,8 @@ public class UsersProvider implements ProviderMethod {
             while (resultSet.next()) {
                 User user = new User(
                         resultSet.getInt("id"),
-                        resultSet.getString("nom"),
-                        resultSet.getString("prenom"),
+                        resultSet.getString("name"),
+                        resultSet.getString("firstname"),
                         resultSet.getString("login"),
                         resultSet.getString("password")
                 );
@@ -170,8 +170,8 @@ public class UsersProvider implements ProviderMethod {
             if (resultSet.next()) {
                 User user = new User(
                         resultSet.getInt("id"),
-                        resultSet.getString("nom"),
-                        resultSet.getString("prenom"),
+                        resultSet.getString("name"),
+                        resultSet.getString("firstname"),
                         resultSet.getString("login"),
                         resultSet.getString("password")
                 );

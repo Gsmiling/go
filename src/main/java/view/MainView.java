@@ -13,17 +13,19 @@ public class MainView {
                 "root",
                 "designmydream",
                 true);
-SwingUtilities.invokeLater(new Runnable() {
+SwingUtilities.invokeLater(() -> new ClientView()/*new Runnable() {
         @Override
         public void run() {
-        LoginView fenetre = new LoginView();
+        //LoginView fenetre = new LoginView();
         fenetre.setLocationRelativeTo(null);
 //Terminer le processus lorsqu'on clique sur
         // "Fermer"
 
-        fenetre.setVisible(true);
+        //fenetre.setVisible(true);
 
         }
-    });
-        }}
+    }*/);
+  
+    }
+}
 

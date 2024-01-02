@@ -2,6 +2,7 @@
 /home/gr/NetBeansProjects/hotel/src/main/java/model/IdentifiedObject.java
 /home/gr/NetBeansProjects/hotel/src/main/java/model/Characteristic.java
 /home/gr/NetBeansProjects/hotel/src/main/java/model/RoomCategory.java
+/home/gr/NetBeansProjects/hotel/src/main/java/view/HotelManagementApp.java
 /home/gr/NetBeansProjects/hotel/src/main/java/view/MainView.java
 /home/gr/NetBeansProjects/hotel/src/main/java/TestHotel.java
 /home/gr/NetBeansProjects/hotel/src/main/java/view/ConnectionView.java
@@ -21,10 +22,12 @@
 /home/gr/NetBeansProjects/hotel/src/main/java/model/Room.java
 /home/gr/NetBeansProjects/hotel/src/main/java/view/LoginView.java
 /home/gr/NetBeansProjects/hotel/src/main/java/model/Bill.java
+/home/gr/NetBeansProjects/hotel/src/main/java/view/ClientView.java
 /home/gr/NetBeansProjects/hotel/src/main/java/provider/ClientProvider.java
 /home/gr/NetBeansProjects/hotel/src/main/java/model/Hotel.java
 /home/gr/NetBeansProjects/hotel/src/main/java/model/ReservationStatement.java
 /home/gr/NetBeansProjects/hotel/src/main/java/provider/UsersProvider.java
 /home/gr/NetBeansProjects/hotel/src/main/java/provider/ServiceProvider.java
+/home/gr/NetBeansProjects/hotel/src/main/java/view/SwingUtils.java
 /home/gr/NetBeansProjects/hotel/src/main/java/provider/ReservationProvider.java
 /home/gr/NetBeansProjects/hotel/src/main/java/provider/ConsommationProvider.java

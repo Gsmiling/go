@@ -11,13 +11,14 @@ public class Client extends IdentifiedObject {
 
 
 
-    public Client(int id, String nomCli, String firstName, int numCart, int numeroTelephone, String nationality){
-        this.clientName = nomCli;
+    public Client(int id, String nameCli, String firstName, int numCart, int phoneNumber, String nationality, ClientCategory clientCategory){
+        this.clientName = nameCli;
         this.numCart = numCart;
-        this.phoneNumber = numeroTelephone;
+        this.phoneNumber = phoneNumber;
         this.id = id;
         this.nationality = nationality;
         this.firstName = firstName;
+        this.clientCategory = clientCategory;
 
     }
 
@@ -30,14 +31,14 @@ public class Client extends IdentifiedObject {
         return super.getId();
     }
 
-    public String getNomCli() {
+    public String getNameCli() {
         return clientName;
     }
     public String getFirstName(){
         return firstName;
     }
 
-    public int getPhoneNumber() {
+    public int getNumPhone() {
         return phoneNumber;
     }
 
